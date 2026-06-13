@@ -7,20 +7,20 @@ import { NAV_LINKS } from "~/lib/constants";
 
 export function Footer() {
   return (
-    <footer className="border-t border-zinc-200 bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-950">
+    <footer className="border-t border-border bg-surface-muted">
       <Container className="py-16">
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
           <div className="lg:col-span-2">
             <Link to="/" className="font-display text-2xl font-bold">
               <span className="gradient-text">WD-MCC</span>
             </Link>
-            <p className="mt-4 max-w-md text-zinc-600 dark:text-zinc-400">
+            <p className="mt-4 max-w-md text-muted-foreground">
               {siteConfig.description}
             </p>
             <div className="mt-6 flex gap-4">
               <a
                 href={siteConfig.social.instagram}
-                className="rounded-full p-2 transition-colors hover:bg-zinc-200 dark:hover:bg-zinc-800"
+                className="rounded-full p-2 transition-colors hover:bg-muted"
                 aria-label="Instagram"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -29,7 +29,7 @@ export function Footer() {
               </a>
               <a
                 href={siteConfig.social.github}
-                className="rounded-full p-2 transition-colors hover:bg-zinc-200 dark:hover:bg-zinc-800"
+                className="rounded-full p-2 transition-colors hover:bg-muted"
                 aria-label="GitHub"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -38,7 +38,7 @@ export function Footer() {
               </a>
               <a
                 href={siteConfig.social.youtube}
-                className="rounded-full p-2 transition-colors hover:bg-zinc-200 dark:hover:bg-zinc-800"
+                className="rounded-full p-2 transition-colors hover:bg-muted"
                 aria-label="YouTube"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -55,7 +55,7 @@ export function Footer() {
                 <li key={link.href}>
                   <Link
                     to={link.href}
-                    className="text-sm text-zinc-600 transition-colors hover:text-primary dark:text-zinc-400"
+                    className="text-sm text-muted-foreground transition-colors hover:text-primary"
                   >
                     {link.label}
                   </Link>
@@ -66,7 +66,7 @@ export function Footer() {
 
           <div>
             <h3 className="font-display font-semibold">Kontak</h3>
-            <ul className="mt-4 space-y-3 text-sm text-zinc-600 dark:text-zinc-400" role="list">
+            <ul className="mt-4 space-y-3 text-sm text-muted-foreground" role="list">
               <li className="flex items-start gap-2">
                 <MapPin className="mt-0.5 h-4 w-4 shrink-0" aria-hidden="true" />
                 {siteConfig.address}
@@ -81,7 +81,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 border-t border-zinc-200 pt-8 text-center text-sm text-zinc-500 dark:border-zinc-800">
+        <div className="mt-12 border-t border-border pt-8 text-center text-sm text-muted-foreground">
           <p>
             © {new Date().getFullYear()} {siteConfig.shortName} — {siteConfig.institution}
           </p>

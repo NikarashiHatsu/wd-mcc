@@ -83,14 +83,14 @@ export default function EventDetailPage({ loaderData }: Route.ComponentProps) {
                   {event.location}
                 </span>
               </div>
-              <p className="mt-6 text-lg text-zinc-600 dark:text-zinc-400">{event.longDescription}</p>
+              <p className="mt-6 text-lg text-muted-foreground">{event.longDescription}</p>
             </Reveal>
 
             <Reveal delay={0.2}>
               <h2 className="mt-10 font-display text-xl font-semibold">Highlights</h2>
               <ul className="mt-4 space-y-2" role="list">
                 {event.highlights.map((h) => (
-                  <li key={h} className="flex items-start gap-2 text-zinc-600 dark:text-zinc-400">
+                  <li key={h} className="flex items-start gap-2 text-muted-foreground">
                     <CheckCircle className="mt-0.5 h-4 w-4 shrink-0 text-primary" aria-hidden="true" />
                     {h}
                   </li>

@@ -24,9 +24,9 @@ export function AlumniSection({ alumni }: AlumniSectionProps) {
         <div className="grid gap-8 md:grid-cols-3">
           {alumni.map((person, i) => (
             <Reveal key={person.id} delay={i * 0.1}>
-              <blockquote className="relative rounded-2xl border border-zinc-200 bg-white p-8 dark:border-zinc-800 dark:bg-zinc-900">
+              <blockquote className="relative rounded-2xl border border-border bg-surface p-8">
                 <Quote className="h-8 w-8 text-primary/30" aria-hidden="true" />
-                <p className="mt-4 text-zinc-700 dark:text-zinc-300">&ldquo;{person.quote}&rdquo;</p>
+                <p className="mt-4 text-muted-foreground">&ldquo;{person.quote}&rdquo;</p>
                 <footer className="mt-6 flex items-center gap-4">
                   <img
                     src={person.avatar}

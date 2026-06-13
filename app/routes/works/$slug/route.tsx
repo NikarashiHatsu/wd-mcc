@@ -65,13 +65,13 @@ export default function WorkDetailPage({ loaderData }: Route.ComponentProps) {
                   <span className="text-sm text-zinc-500">{project.year}</span>
                 </div>
                 <h1 className="mt-4 font-display text-4xl font-bold md:text-5xl">{project.title}</h1>
-                <p className="mt-6 text-lg text-zinc-600 dark:text-zinc-400">{project.longDescription}</p>
+                <p className="mt-6 text-lg text-muted-foreground">{project.longDescription}</p>
               </Reveal>
             </div>
 
             <aside>
               <Reveal delay={0.2}>
-                <div className="rounded-2xl border border-zinc-200 bg-white p-6 dark:border-zinc-800 dark:bg-zinc-900">
+                <div className="rounded-2xl border border-border bg-surface p-6 ">
                   <h2 className="font-display font-semibold">Detail Project</h2>
                   <dl className="mt-4 space-y-3 text-sm">
                     <div>

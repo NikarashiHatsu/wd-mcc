@@ -69,7 +69,7 @@ export default function WorksPage({ loaderData }: Route.ComponentProps) {
                   placeholder="Cari project..."
                   value={search}
                   onChange={(e) => setSearch(e.target.value)}
-                  className="w-full rounded-full border border-zinc-200 bg-white py-3 pl-11 pr-4 outline-none focus:border-primary dark:border-zinc-800 dark:bg-zinc-900"
+                  className="w-full rounded-full border border-border bg-surface py-3 pl-11 pr-4 outline-none focus:border-primary "
                   aria-label="Cari project"
                 />
               </div>
@@ -78,7 +78,7 @@ export default function WorksPage({ loaderData }: Route.ComponentProps) {
                   onClick={() => setCategory("All")}
                   className={cn(
                     "rounded-full px-4 py-2 text-sm font-medium transition-colors",
-                    category === "All" ? "bg-primary text-white" : "bg-zinc-100 dark:bg-zinc-800",
+                    category === "All" ? "bg-primary text-white" : "bg-muted",
                   )}
                 >
                   Semua
@@ -89,7 +89,7 @@ export default function WorksPage({ loaderData }: Route.ComponentProps) {
                     onClick={() => setCategory(cat)}
                     className={cn(
                       "rounded-full px-4 py-2 text-sm font-medium transition-colors",
-                      category === cat ? "bg-primary text-white" : "bg-zinc-100 dark:bg-zinc-800",
+                      category === cat ? "bg-primary text-white" : "bg-muted",
                     )}
                   >
                     {cat}
@@ -123,7 +123,7 @@ export default function WorksPage({ loaderData }: Route.ComponentProps) {
                     <Badge key={t} variant="outline">{t}</Badge>
                   ))}
                 </div>
-                <p className="mt-4 text-zinc-600 dark:text-zinc-400">{preview.description}</p>
+                <p className="mt-4 text-muted-foreground">{preview.description}</p>
                 <Link to={`/works/${preview.slug}`} onClick={() => setPreview(null)}>
                   <Button className="mt-6">
                     Lihat Detail <ExternalLink className="h-4 w-4" />

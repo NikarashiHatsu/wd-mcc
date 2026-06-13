@@ -16,7 +16,7 @@ export function Navbar() {
     <>
       <header className="fixed top-4 left-1/2 z-50 w-[calc(100%-2rem)] max-w-4xl -translate-x-1/2">
         <nav
-          className="glass flex items-center justify-between rounded-full border border-zinc-200/60 px-4 py-2 shadow-lg dark:border-zinc-800/60"
+          className="glass flex items-center justify-between rounded-full border border-border/60 px-4 py-2 shadow-lg"
           aria-label="Navigasi utama"
         >
           <Link
@@ -25,7 +25,7 @@ export function Navbar() {
             aria-label="WD-MCC Beranda"
           >
             <span className="gradient-text">WD</span>
-            <span className="text-zinc-900 dark:text-zinc-100">-MCC</span>
+            <span className="text-foreground">-MCC</span>
           </Link>
 
           <ul className="hidden items-center gap-1 md:flex" role="list">
@@ -37,7 +37,7 @@ export function Navbar() {
                     "rounded-full px-3 py-1.5 text-sm font-medium transition-colors",
                     location.pathname === link.href
                       ? "bg-primary/10 text-primary"
-                      : "text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100",
+                      : "text-muted-foreground hover:text-foreground",
                   )}
                 >
                   {link.label}
@@ -49,7 +49,7 @@ export function Navbar() {
           <div className="flex items-center gap-1">
             <button
               onClick={openSearch}
-              className="rounded-full p-2 transition-colors hover:bg-zinc-100 dark:hover:bg-zinc-800"
+              className="rounded-full p-2 transition-colors hover:bg-muted"
               aria-label="Buka pencarian"
             >
               <Search className="h-5 w-5" />
@@ -83,7 +83,7 @@ export function Navbar() {
       <AnimatePresence>
         {mobileOpen && (
           <motion.nav
-            className="fixed top-20 right-4 left-4 z-50 glass rounded-2xl border border-zinc-200 p-4 shadow-xl dark:border-zinc-800 md:hidden"
+            className="fixed top-20 right-4 left-4 z-50 glass rounded-2xl border border-border p-4 shadow-xl md:hidden"
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
@@ -99,7 +99,7 @@ export function Navbar() {
                       "block rounded-xl px-4 py-3 text-base font-medium transition-colors",
                       location.pathname === link.href
                         ? "bg-primary/10 text-primary"
-                        : "hover:bg-zinc-100 dark:hover:bg-zinc-800",
+                        : "hover:bg-muted",
                     )}
                   >
                     {link.label}

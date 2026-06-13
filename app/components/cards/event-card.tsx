@@ -19,7 +19,7 @@ export function EventCard({ event }: EventCardProps) {
   return (
     <Link
       to={`/events/${event.slug}`}
-      className="group flex flex-col overflow-hidden rounded-2xl border border-zinc-200 bg-white transition-all hover:-translate-y-1 hover:shadow-lg dark:border-zinc-800 dark:bg-zinc-900 md:flex-row"
+      className="group flex flex-col overflow-hidden rounded-2xl border border-border bg-surface transition-all hover:-translate-y-1 hover:shadow-lg md:flex-row"
     >
       <div className="relative h-48 shrink-0 overflow-hidden md:h-auto md:w-64">
         <img
@@ -39,7 +39,7 @@ export function EventCard({ event }: EventCardProps) {
         <h3 className="mt-3 font-display text-xl font-semibold group-hover:text-primary">
           {event.title}
         </h3>
-        <p className="mt-2 flex-1 text-sm text-zinc-600 dark:text-zinc-400">
+        <p className="mt-2 flex-1 text-sm text-muted-foreground">
           {event.description}
         </p>
         <div className="mt-4 flex flex-wrap gap-4 text-sm text-zinc-500">

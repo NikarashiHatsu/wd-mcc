@@ -50,12 +50,12 @@ export function Modal({ open, onClose, title, children }: ModalProps) {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
           >
-            <div className="glass overflow-hidden rounded-2xl border border-zinc-200 shadow-2xl dark:border-zinc-800">
-              <div className="flex items-center justify-between border-b border-zinc-200 px-6 py-4 dark:border-zinc-800">
+            <div className="glass overflow-hidden rounded-2xl border border-border shadow-2xl">
+              <div className="flex items-center justify-between border-b border-border px-6 py-4">
                 <h2 className="font-display text-lg font-semibold">{title}</h2>
                 <button
                   onClick={onClose}
-                  className="rounded-lg p-1.5 hover:bg-zinc-100 dark:hover:bg-zinc-800"
+                  className="rounded-lg p-1.5 hover:bg-muted"
                   aria-label="Tutup preview"
                 >
                   <X className="h-5 w-5" />

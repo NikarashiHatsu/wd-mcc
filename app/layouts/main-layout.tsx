@@ -10,10 +10,12 @@ import { LoadingScreen } from "~/components/shared/loading-screen";
 import { PageTransition } from "~/components/shared/page-transition";
 import { SearchProvider } from "~/hooks/useSearchModal";
 import { useLenis } from "~/hooks/useLenis";
+import { useRouteScrollReset } from "~/hooks/useRouteScrollReset";
 
 export default function MainLayout() {
   const location = useLocation();
-  useLenis();
+  const lenisRef = useLenis();
+  useRouteScrollReset(lenisRef);
 
   return (
     <HelmetProvider>

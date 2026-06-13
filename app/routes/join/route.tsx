@@ -50,10 +50,10 @@ export default function JoinPage({ loaderData }: Route.ComponentProps) {
           <ol className="grid gap-6 md:grid-cols-2 lg:grid-cols-4" role="list">
             {join.steps.map((step, i) => (
               <Reveal key={step.title} delay={i * 0.08}>
-                <li className="relative rounded-2xl border border-zinc-200 bg-white p-6 dark:border-zinc-800 dark:bg-zinc-900">
+                <li className="relative rounded-2xl border border-border bg-surface p-6 ">
                   <span className="font-display text-4xl font-bold text-primary/20">{String(i + 1).padStart(2, "0")}</span>
                   <h3 className="mt-2 font-display text-lg font-semibold">{step.title}</h3>
-                  <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">{step.description}</p>
+                  <p className="mt-2 text-sm text-muted-foreground">{step.description}</p>
                   {i < join.steps.length - 1 && (
                     <ArrowRight className="absolute -right-3 top-1/2 hidden h-6 w-6 -translate-y-1/2 text-zinc-300 lg:block" aria-hidden="true" />
                   )}
@@ -64,7 +64,7 @@ export default function JoinPage({ loaderData }: Route.ComponentProps) {
         </Container>
       </section>
 
-      <section className="py-24 bg-zinc-50 dark:bg-zinc-950/50">
+      <section className="py-24 section-muted">
         <Container>
           <div className="grid gap-12 lg:grid-cols-3">
             {[
@@ -73,11 +73,11 @@ export default function JoinPage({ loaderData }: Route.ComponentProps) {
               { title: "Manfaat", items: join.benefits },
             ].map((section, i) => (
               <Reveal key={section.title} delay={i * 0.1}>
-                <article className="rounded-2xl border border-zinc-200 bg-white p-8 dark:border-zinc-800 dark:bg-zinc-900">
+                <article className="rounded-2xl border border-border bg-surface p-8 ">
                   <h2 className="font-display text-xl font-bold">{section.title}</h2>
                   <ul className="mt-6 space-y-3" role="list">
                     {section.items.map((item) => (
-                      <li key={item} className="flex items-start gap-2 text-sm text-zinc-600 dark:text-zinc-400">
+                      <li key={item} className="flex items-start gap-2 text-sm text-muted-foreground">
                         <CheckCircle className="mt-0.5 h-4 w-4 shrink-0 text-primary" aria-hidden="true" />
                         {item}
                       </li>
@@ -93,9 +93,9 @@ export default function JoinPage({ loaderData }: Route.ComponentProps) {
       <section className="py-24">
         <Container>
           <Reveal>
-            <div className="rounded-3xl border border-zinc-200 bg-white p-8 text-center dark:border-zinc-800 dark:bg-zinc-900 md:p-16">
+            <div className="rounded-3xl border border-border bg-surface p-8 text-center  md:p-16">
               <h2 className="font-display text-3xl font-bold">Ready to Join?</h2>
-              <p className="mx-auto mt-4 max-w-md text-zinc-600 dark:text-zinc-400">
+              <p className="mx-auto mt-4 max-w-md text-muted-foreground">
                 Open recruitment dibuka setiap awal semester. Hubungi pembina divisi atau isi formulir pendaftaran.
               </p>
               <div className="mt-8 flex flex-wrap justify-center gap-4">

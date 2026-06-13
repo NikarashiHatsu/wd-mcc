@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useReducedMotion } from "~/hooks/useReducedMotion";
+import { refreshScrollTriggers } from "~/hooks/useLenis";
 
 export function LoadingScreen() {
   const [loading, setLoading] = useState(true);
@@ -14,6 +15,12 @@ export function LoadingScreen() {
     const timer = setTimeout(() => setLoading(false), 1800);
     return () => clearTimeout(timer);
   }, [reducedMotion]);
+
+  useEffect(() => {
+    if (!loading) {
+      refreshScrollTriggers();
+    }
+  }, [loading]);
 
   return (
     <AnimatePresence>
@@ -35,7 +42,7 @@ export function LoadingScreen() {
               WD-MCC
             </motion.div>
             <motion.div
-              className="mt-4 h-0.5 w-32 overflow-hidden rounded-full bg-zinc-200 dark:bg-zinc-800"
+              className="mt-4 h-0.5 w-32 overflow-hidden rounded-full bg-border"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.3 }}

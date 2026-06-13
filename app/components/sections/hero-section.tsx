@@ -62,7 +62,7 @@ export function HeroSection() {
             </motion.p>
 
             <motion.h1
-              className="font-display text-5xl font-bold leading-[1.1] tracking-tight sm:text-6xl md:text-7xl lg:text-8xl"
+              className="font-display text-5xl font-bold leading-[1.1] tracking-tight text-foreground sm:text-6xl md:text-7xl lg:text-8xl"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.1 }}
@@ -85,7 +85,7 @@ export function HeroSection() {
             </motion.h1>
 
             <motion.p
-              className="mt-6 max-w-xl text-lg text-zinc-600 dark:text-zinc-400 md:text-xl"
+              className="mt-6 max-w-xl text-lg text-muted-foreground md:text-xl"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
@@ -121,24 +121,24 @@ export function HeroSection() {
           >
             <div className="relative aspect-square max-w-md mx-auto lg:ml-auto">
               <div className="absolute inset-4 rotate-6 rounded-3xl bg-gradient-to-br from-primary/20 to-amber-400/20" />
-              <div className="absolute inset-0 -rotate-3 rounded-3xl border border-zinc-200 bg-white/80 p-6 shadow-2xl backdrop-blur dark:border-zinc-800 dark:bg-zinc-900/80">
+              <div className="absolute inset-0 -rotate-3 rounded-3xl border border-border bg-surface/80 p-6 shadow-2xl backdrop-blur">
                 <div className="flex h-full flex-col justify-between">
                   <div>
-                    <p className="text-xs font-medium uppercase tracking-widest text-zinc-500">Stats</p>
+                    <p className="text-xs font-medium uppercase tracking-widest text-muted-foreground">Stats</p>
                     <p className="mt-2 font-display text-4xl font-bold">50+</p>
-                    <p className="text-sm text-zinc-600 dark:text-zinc-400">Anggota Aktif</p>
+                    <p className="text-sm text-muted-foreground">Anggota Aktif</p>
                   </div>
                   <div className="grid grid-cols-2 gap-4">
-                    <div className="rounded-xl bg-zinc-100 p-4 dark:bg-zinc-800">
+                    <div className="rounded-xl bg-surface-elevated p-4">
                       <p className="font-display text-2xl font-bold text-primary">30+</p>
-                      <p className="text-xs text-zinc-500">Projects</p>
+                      <p className="text-xs text-muted-foreground">Projects</p>
                     </div>
-                    <div className="rounded-xl bg-zinc-100 p-4 dark:bg-zinc-800">
+                    <div className="rounded-xl bg-surface-elevated p-4">
                       <p className="font-display text-2xl font-bold text-amber-500">8</p>
-                      <p className="text-xs text-zinc-500">Tahun</p>
+                      <p className="text-xs text-muted-foreground">Tahun</p>
                     </div>
                   </div>
-                  <p className="text-xs text-zinc-500">
+                  <p className="text-xs text-muted-foreground">
                     Est. 2018 · SMK N 1 Kedawung Cirebon
                   </p>
                 </div>

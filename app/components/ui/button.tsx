@@ -7,8 +7,8 @@ const variants = {
   secondary:
     "bg-zinc-900 text-white hover:bg-zinc-800 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-zinc-200",
   outline:
-    "border border-zinc-300 dark:border-zinc-700 hover:bg-zinc-100 dark:hover:bg-zinc-800",
-  ghost: "hover:bg-zinc-100 dark:hover:bg-zinc-800",
+    "border border-border hover:bg-muted",
+  ghost: "hover:bg-muted",
   accent: "bg-amber-400 text-zinc-900 hover:bg-amber-300 shadow-lg shadow-amber-400/25",
 } as const;
 

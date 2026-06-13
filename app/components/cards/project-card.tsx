@@ -31,12 +31,12 @@ export function ProjectCard({ project, className, size = "default", onPreview }:
       <div className="p-5">
         <div className="flex items-center gap-2">
           <Badge variant="primary">{project.category}</Badge>
-          <span className="text-xs text-zinc-500">{project.year}</span>
+          <span className="text-xs text-muted-foreground">{project.year}</span>
         </div>
         <h3 className="mt-2 font-display text-lg font-semibold group-hover:text-primary">
           {project.title}
         </h3>
-        <p className="mt-1 line-clamp-2 text-sm text-zinc-600 dark:text-zinc-400">
+        <p className="mt-1 line-clamp-2 text-sm text-muted-foreground">
           {project.description}
         </p>
         <span className="mt-3 inline-flex items-center gap-1 text-sm font-medium text-primary opacity-0 transition-opacity group-hover:opacity-100">
@@ -47,7 +47,7 @@ export function ProjectCard({ project, className, size = "default", onPreview }:
   );
 
   const cardClass = cn(
-    "group relative overflow-hidden rounded-2xl border border-zinc-200 bg-white transition-all duration-300 hover:-translate-y-1 hover:shadow-xl dark:border-zinc-800 dark:bg-zinc-900 block w-full text-left",
+    "group relative overflow-hidden rounded-2xl border border-border bg-surface transition-all duration-300 hover:-translate-y-1 hover:shadow-xl block w-full text-left",
     size === "large" && "md:col-span-2 md:row-span-2",
     size === "wide" && "md:col-span-2",
     className,

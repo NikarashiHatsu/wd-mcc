@@ -14,6 +14,11 @@ interface RevealProps {
   stagger?: number;
 }
 
+function isInViewport(el: HTMLElement, threshold = 0.92) {
+  const rect = el.getBoundingClientRect();
+  return rect.top < window.innerHeight * threshold && rect.bottom > 0;
+}
+
 export function Reveal({ children, className, delay = 0, y = 40, stagger }: RevealProps) {
   const ref = useRef<HTMLDivElement>(null);
   const reducedMotion = useReducedMotion();
@@ -22,21 +27,53 @@ export function Reveal({ children, className, delay = 0, y = 40, stagger }: Reve
     () => {
       if (reducedMotion || !ref.current) return;
 
-      gsap.from(ref.current.children.length ? ref.current.children : ref.current, {
-        opacity: 0,
-        y,
+      const el = ref.current;
+      const targets = el.children.length ? el.children : el;
+      const staggerValue = stagger ?? 0.1;
+
+      gsap.set(targets, { opacity: 1, y: 0 });
+
+      if (isInViewport(el)) {
+        gsap.fromTo(
+          targets,
+          { opacity: 0, y },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            delay,
+            stagger: staggerValue,
+            ease: "power3.out",
+          },
+        );
+        return;
+      }
+
+      gsap.set(targets, { opacity: 0, y });
+
+      const tween = gsap.to(targets, {
+        opacity: 1,
+        y: 0,
         duration: 0.8,
         delay,
-        stagger: stagger ?? 0.1,
+        stagger: staggerValue,
         ease: "power3.out",
         scrollTrigger: {
-          trigger: ref.current,
-          start: "top 85%",
+          trigger: el,
+          start: "top 92%",
           toggleActions: "play none none none",
+          once: true,
+          invalidateOnRefresh: true,
         },
       });
+
+      ScrollTrigger.refresh();
+
+      if (tween.scrollTrigger?.isActive) {
+        tween.progress(1);
+      }
     },
-    { scope: ref, dependencies: [reducedMotion] },
+    { scope: ref, dependencies: [reducedMotion, delay, y, stagger], revertOnUpdate: true },
   );
 
   return (

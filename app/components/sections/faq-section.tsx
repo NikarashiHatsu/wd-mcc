@@ -15,7 +15,7 @@ export function FAQSection({ items }: FAQSectionProps) {
   const [openId, setOpenId] = useState<string | null>(null);
 
   return (
-    <section id="faq" className="py-24 md:py-32 bg-zinc-50 dark:bg-zinc-950/50" aria-labelledby="faq-heading">
+    <section id="faq" className="py-24 md:py-32 section-muted" aria-labelledby="faq-heading">
       <Container className="max-w-3xl">
         <Reveal>
           <SectionHeading
@@ -29,7 +29,7 @@ export function FAQSection({ items }: FAQSectionProps) {
         <div className="space-y-3">
           {items.map((item, i) => (
             <Reveal key={item.id} delay={i * 0.05}>
-              <div className="overflow-hidden rounded-2xl border border-zinc-200 bg-white dark:border-zinc-800 dark:bg-zinc-900">
+              <div className="overflow-hidden rounded-2xl border border-border bg-surface">
                 <button
                   className="flex w-full items-center justify-between px-6 py-5 text-left"
                   onClick={() => setOpenId(openId === item.id ? null : item.id)}
@@ -52,7 +52,7 @@ export function FAQSection({ items }: FAQSectionProps) {
                       exit={{ height: 0, opacity: 0 }}
                       transition={{ duration: 0.3 }}
                     >
-                      <p className="px-6 pb-5 text-zinc-600 dark:text-zinc-400">{item.answer}</p>
+                      <p className="px-6 pb-5 text-muted-foreground">{item.answer}</p>
                     </motion.div>
                   )}
                 </AnimatePresence>

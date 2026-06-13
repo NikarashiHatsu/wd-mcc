@@ -105,7 +105,7 @@ export default function EventsPage({ loaderData }: Route.ComponentProps) {
             </div>
           ) : (
             <ol className="relative space-y-8" role="list">
-              <div className="absolute left-4 top-0 bottom-0 w-px bg-zinc-200 dark:bg-zinc-800" aria-hidden="true" />
+              <div className="absolute left-4 top-0 bottom-0 w-px bg-border" aria-hidden="true" />
               {events.map((event, i) => (
                 <Reveal key={event.id} delay={i * 0.06}>
                   <li className="relative pl-12">

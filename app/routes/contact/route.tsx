@@ -48,14 +48,14 @@ export default function ContactPage({ loaderData }: Route.ComponentProps) {
         <Container>
           <div className="grid gap-8 lg:grid-cols-2">
             <Reveal>
-              <div className="rounded-2xl border border-zinc-200 bg-white p-8 dark:border-zinc-800 dark:bg-zinc-900">
+              <div className="rounded-2xl border border-border bg-surface p-8 ">
                 <h2 className="font-display text-xl font-bold">Informasi Kontak</h2>
                 <ul className="mt-6 space-y-4" role="list">
                   <li className="flex items-start gap-3">
                     <MapPin className="mt-0.5 h-5 w-5 shrink-0 text-primary" aria-hidden="true" />
                     <div>
                       <p className="font-medium">Alamat</p>
-                      <p className="text-sm text-zinc-600 dark:text-zinc-400">{siteConfig.address}</p>
+                      <p className="text-sm text-muted-foreground">{siteConfig.address}</p>
                     </div>
                   </li>
                   <li className="flex items-center gap-3">
@@ -90,7 +90,7 @@ export default function ContactPage({ loaderData }: Route.ComponentProps) {
                       href={href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="rounded-full border border-zinc-200 p-3 transition-colors hover:bg-zinc-100 dark:border-zinc-700 dark:hover:bg-zinc-800"
+                      className="rounded-full border border-border p-3 transition-colors hover:bg-muted"
                       aria-label={label}
                     >
                       <Icon className="h-5 w-5" />
@@ -101,7 +101,7 @@ export default function ContactPage({ loaderData }: Route.ComponentProps) {
             </Reveal>
 
             <Reveal delay={0.1}>
-              <div className="overflow-hidden rounded-2xl border border-zinc-200 dark:border-zinc-800">
+              <div className="overflow-hidden rounded-2xl border border-border">
                 <iframe
                   title="Lokasi SMK Negeri 1 Kedawung Cirebon"
                   src="https://maps.google.com/maps?q=SMK+Negeri+1+Kedawung+Cirebon&output=embed"
@@ -114,11 +114,11 @@ export default function ContactPage({ loaderData }: Route.ComponentProps) {
           </div>
 
           <Reveal delay={0.2}>
-            <div className="mt-12 rounded-2xl border border-zinc-200 bg-zinc-50 p-6 dark:border-zinc-800 dark:bg-zinc-950">
+            <div className="mt-12 rounded-2xl border border-border bg-surface-muted p-6 ">
               <div className="flex items-center justify-between">
                 <div>
                   <h2 className="font-display font-semibold">Punya pertanyaan lain?</h2>
-                  <p className="text-sm text-zinc-600 dark:text-zinc-400">Lihat FAQ lengkap di halaman beranda.</p>
+                  <p className="text-sm text-muted-foreground">Lihat FAQ lengkap di halaman beranda.</p>
                 </div>
                 <Link
                   to="/#faq"

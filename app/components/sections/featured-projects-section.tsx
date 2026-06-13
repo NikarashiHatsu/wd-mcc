@@ -1,10 +1,12 @@
 import { useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 import type { Project, ProjectCategory } from "~/types";
 import { PROJECT_CATEGORIES } from "~/lib/constants";
 import { Container } from "~/components/ui/container";
 import { SectionHeading } from "~/components/ui/section-heading";
 import { ProjectCard } from "~/components/cards/project-card";
 import { Reveal } from "~/components/shared/reveal";
+import { useReducedMotion } from "~/hooks/useReducedMotion";
 import { cn } from "~/lib/utils";
 
 interface FeaturedProjectsSectionProps {
@@ -13,6 +15,7 @@ interface FeaturedProjectsSectionProps {
 
 export function FeaturedProjectsSection({ projects }: FeaturedProjectsSectionProps) {
   const [filter, setFilter] = useState<ProjectCategory | "All">("All");
+  const reducedMotion = useReducedMotion();
 
   const filtered =
     filter === "All" ? projects : projects.filter((p) => p.category === filter);
@@ -38,7 +41,7 @@ export function FeaturedProjectsSection({ projects }: FeaturedProjectsSectionPro
                 "rounded-full px-4 py-2 text-sm font-medium transition-colors",
                 filter === "All"
                   ? "bg-primary text-white"
-                  : "bg-zinc-100 text-zinc-600 hover:bg-zinc-200 dark:bg-zinc-800 dark:text-zinc-400",
+                  : "bg-muted text-muted-foreground hover:bg-surface-elevated",
               )}
             >
               Semua
@@ -53,7 +56,7 @@ export function FeaturedProjectsSection({ projects }: FeaturedProjectsSectionPro
                   "rounded-full px-4 py-2 text-sm font-medium transition-colors",
                   filter === cat
                     ? "bg-primary text-white"
-                    : "bg-zinc-100 text-zinc-600 hover:bg-zinc-200 dark:bg-zinc-800 dark:text-zinc-400",
+                    : "bg-muted text-muted-foreground hover:bg-surface-elevated",
                 )}
               >
                 {cat}
@@ -63,14 +66,27 @@ export function FeaturedProjectsSection({ projects }: FeaturedProjectsSectionPro
         </Reveal>
 
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {filtered.map((project, i) => (
-            <Reveal key={project.id} delay={i * 0.05}>
-              <ProjectCard
-                project={project}
-                size={i === 0 ? "large" : i === 2 ? "wide" : "default"}
-              />
-            </Reveal>
-          ))}
+          <AnimatePresence mode="popLayout">
+            {filtered.map((project, i) => (
+              <motion.div
+                key={project.id}
+                layout={!reducedMotion}
+                initial={reducedMotion ? false : { opacity: 0, y: 24 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={reducedMotion ? undefined : { opacity: 0, y: 12 }}
+                transition={{ duration: 0.35, delay: reducedMotion ? 0 : i * 0.05 }}
+                className={cn(
+                  i === 0 && "md:col-span-2 md:row-span-2",
+                  i === 2 && "md:col-span-2",
+                )}
+              >
+                <ProjectCard
+                  project={project}
+                  size={i === 0 ? "large" : i === 2 ? "wide" : "default"}
+                />
+              </motion.div>
+            ))}
+          </AnimatePresence>
         </div>
       </Container>
     </section>

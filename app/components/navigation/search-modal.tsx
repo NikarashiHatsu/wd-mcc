@@ -49,8 +49,8 @@ export function SearchModal() {
             exit={{ opacity: 0, y: -20, scale: 0.95 }}
             transition={{ duration: 0.2 }}
           >
-            <div className="glass overflow-hidden rounded-2xl border border-zinc-200 shadow-2xl dark:border-zinc-800">
-              <div className="flex items-center gap-3 border-b border-zinc-200 px-4 dark:border-zinc-800">
+            <div className="glass overflow-hidden rounded-2xl border border-border shadow-2xl">
+              <div className="flex items-center gap-3 border-b border-border px-4">
                 <Search className="h-5 w-5 shrink-0 text-zinc-400" aria-hidden="true" />
                 <input
                   ref={inputRef}
@@ -63,7 +63,7 @@ export function SearchModal() {
                 />
                 <button
                   onClick={close}
-                  className="rounded-lg p-1.5 hover:bg-zinc-100 dark:hover:bg-zinc-800"
+                  className="rounded-lg p-1.5 hover:bg-muted"
                   aria-label="Tutup pencarian"
                 >
                   <X className="h-4 w-4" />
@@ -82,7 +82,7 @@ export function SearchModal() {
                         <Link
                           to={result.href}
                           onClick={close}
-                          className="flex items-start gap-3 rounded-xl px-4 py-3 transition-colors hover:bg-zinc-100 dark:hover:bg-zinc-800"
+                          className="flex items-start gap-3 rounded-xl px-4 py-3 transition-colors hover:bg-muted"
                           role="option"
                         >
                           <Icon className="mt-0.5 h-4 w-4 shrink-0 text-primary" aria-hidden="true" />
@@ -96,7 +96,7 @@ export function SearchModal() {
                   })
                 )}
               </ul>
-              <div className="border-t border-zinc-200 px-4 py-2 text-xs text-zinc-400 dark:border-zinc-800">
+              <div className="border-t border-border px-4 py-2 text-xs text-muted-foreground">
                 <kbd className={cn("rounded border px-1.5 py-0.5 font-mono")}>⌘K</kbd> untuk buka ·{" "}
                 <kbd className="rounded border px-1.5 py-0.5 font-mono">Esc</kbd> untuk tutup
               </div>

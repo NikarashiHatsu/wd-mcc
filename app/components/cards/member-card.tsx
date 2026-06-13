@@ -8,7 +8,7 @@ interface MemberCardProps {
 
 export function MemberCard({ member }: MemberCardProps) {
   return (
-    <article className="group overflow-hidden rounded-2xl border border-zinc-200 bg-white transition-all hover:-translate-y-1 hover:shadow-lg dark:border-zinc-800 dark:bg-zinc-900">
+    <article className="group overflow-hidden rounded-2xl border border-border bg-surface transition-all hover:-translate-y-1 hover:shadow-lg">
       <div className="relative h-48 overflow-hidden">
         <img
           src={member.avatar}
@@ -23,7 +23,7 @@ export function MemberCard({ member }: MemberCardProps) {
         </div>
       </div>
       <div className="p-5">
-        <p className="text-sm text-zinc-600 dark:text-zinc-400">{member.bio}</p>
+        <p className="text-sm text-muted-foreground">{member.bio}</p>
         <div className="mt-3 flex flex-wrap gap-1.5">
           {member.skills.map((skill) => (
             <Badge key={skill} variant="outline">
@@ -34,17 +34,17 @@ export function MemberCard({ member }: MemberCardProps) {
         {member.social && (
           <div className="mt-4 flex gap-2">
             {member.social.github && (
-              <a href={member.social.github} className="rounded-full p-1.5 hover:bg-zinc-100 dark:hover:bg-zinc-800" aria-label={`GitHub ${member.name}`}>
+              <a href={member.social.github} className="rounded-full p-1.5 hover:bg-muted" aria-label={`GitHub ${member.name}`}>
                 <GithubIcon className="h-4 w-4" />
               </a>
             )}
             {member.social.instagram && (
-              <a href={member.social.instagram} className="rounded-full p-1.5 hover:bg-zinc-100 dark:hover:bg-zinc-800" aria-label={`Instagram ${member.name}`}>
+              <a href={member.social.instagram} className="rounded-full p-1.5 hover:bg-muted" aria-label={`Instagram ${member.name}`}>
                 <InstagramIcon className="h-4 w-4" />
               </a>
             )}
             {member.social.linkedin && (
-              <a href={member.social.linkedin} className="rounded-full p-1.5 hover:bg-zinc-100 dark:hover:bg-zinc-800" aria-label={`LinkedIn ${member.name}`}>
+              <a href={member.social.linkedin} className="rounded-full p-1.5 hover:bg-muted" aria-label={`LinkedIn ${member.name}`}>
                 <LinkedinIcon className="h-4 w-4" />
               </a>
             )}
