@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://wd-mcc.smkn1kedawung.sch.id/sitemap.xml
